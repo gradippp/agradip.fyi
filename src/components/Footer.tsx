@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 const messages = [
   "Just vibing in the footer, don't mind me!",
-  "Yes, I built this. No, I wouldn’t trust it either.",
+  "Yes, I built this. No, I wouldn't trust it either.",
   "Look at you, searching for meaning in a footer. Get help.",
-  "Footer enjoyer? That’s your personality now.",
-  "You probably pronounce ‘meme’ as ‘me-me’, don’t you?",
+  "Footer enjoyer? That's your personality now.",
+  "You probably pronounce 'meme' as 'me-me', don't you?",
   "You probably watch a productivity video… then take a 3-hour nap",
   "Dawg, you really out here acting like this footer owes you something?",
   "Homie no offense, your personality couldn't fight off a toddler.",
