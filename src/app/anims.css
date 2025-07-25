@@ -1,0 +1,90 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.vhs-text {
+  position: relative;
+  color: red;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  animation: skew 2s infinite, flash 0.04s infinite;
+  display: inline-block;
+}
+
+.vhs-text::before,
+.vhs-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.vhs-text::before {
+  color: limegreen;
+  transform: translate(4px, -2px);
+}
+
+.vhs-text::after {
+  color: blue;
+  animation: move 1.5s infinite;
+  transform: translate(-4px, 2px);
+}
+
+@keyframes skew {
+  0%,
+  30% {
+    transform: none;
+  }
+  30.2% {
+    transform: skewX(50deg);
+  }
+  30.4% {
+    transform: skewX(-50deg);
+  }
+  31%,
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes move {
+  0%,
+  30%,
+  98% {
+    transform: none;
+  }
+  31% {
+    transform: translateX(-6px);
+  }
+  33% {
+    transform: none;
+  }
+  100% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
