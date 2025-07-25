@@ -53,6 +53,31 @@ export default function Home() {
         <hr className="my-4 border-gray-600" />
 
         <div className="mt-4">
+          <h4 className="text-xl font-semibold">About Me</h4>
+
+          <div className="space-y-4 text-left text-gray-300 leading-relaxed">
+            <p>
+              Hi! I am Agradip, an 18-year-old student and full-stack developer
+              from India.
+            </p>
+            <p>
+              I have over <strong>4 years</strong> of experience as a developer,
+              and I love fiddling around with random IT stuff. I am especially
+              into Networking and System Administration. I’ve taken care of a
+              few Linux servers over the past few years like they were my own
+              kids.
+            </p>
+            <p>
+              Outside the tech bubble, you’ll usually find me making electronic
+              music, capturing life through mobile photography, or diving into
+              late-night philosophical rabbit holes.
+            </p>
+          </div>
+        </div>
+
+        <hr className="my-4 border-gray-600" />
+
+        <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">My Projects</h4>
           <div className="flex flex-wrap justify-center gap-4">
             {PROJECTS.map((project) => (
