@@ -9,6 +9,7 @@ import PillPopup from "@/components/PillPopup";
 import "@/app/anims.css";
 import Footer from "@/components/Footer";
 import { LINKS } from "@/data/links";
+import { MISC } from "@/data/misc";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -27,7 +28,7 @@ export default function Home() {
   };
 
   const handleRedPill = () => {
-    console.log("Red Pill chosen");
+    window.open(MISC.RED_PILL_REDIRECT);
     closePillPopup();
   };
 
