@@ -135,7 +135,7 @@ const PillPopup: React.FC<PillPopupProps> = ({ onRedPill, onBluePill }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-center z-50 animate-fade-in p-4 gap-6">
       {/* Left: Image + Message Box */}
-      <div className="relative bg-gray-900 border border-gray-700 p-4 rounded-lg shadow-2xl text-center w-full max-w-[650px]">
+      <div className="relative p-4 rounded-lg shadow-2xl text-center w-full max-w-[650px]">
         <div
           ref={imageContainerRef}
           className="relative w-full"
