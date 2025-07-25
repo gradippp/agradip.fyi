@@ -8,6 +8,7 @@ import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
 import "@/app/anims.css";
 import Footer from "@/components/Footer";
+import { LINKS } from "@/data/links";
 
 export default function Home() {
   const [showPills, setShowPills] = useState(false);
@@ -83,6 +84,17 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.name} {...project} />
+            ))}
+          </div>
+        </div>
+
+        <hr className="my-6 border-gray-600" />
+
+        <div className="mt-4">
+          <h4 className="text-xl font-semibold mb-2">Links & Services</h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            {LINKS.map((link) => (
+              <ProjectCard key={link.name} {...link} />
             ))}
           </div>
         </div>
