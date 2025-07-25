@@ -45,6 +45,8 @@ const PillPopup: React.FC<PillPopupProps> = ({
   const overlayRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [cursor, setCursor] = useState("default");
+  const [hoveredPill, setHoveredPill] = useState<"red" | "blue" | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
   // Matrix Animation
   useEffect(() => {
@@ -113,13 +115,20 @@ const PillPopup: React.FC<PillPopupProps> = ({
     const x = ((e.clientX - rect.left) / rect.width) * ORIGINAL_WIDTH;
     const y = ((e.clientY - rect.top) / rect.height) * ORIGINAL_HEIGHT;
 
-    if (
-      isPointInPolygon(x, y, redPillPolygon) ||
-      isPointInPolygon(x, y, bluePillPolygon)
-    ) {
+    const clientX = e.clientX - rect.left;
+    const clientY = e.clientY - rect.top;
+
+    if (isPointInPolygon(x, y, redPillPolygon)) {
       setCursor("pointer");
+      setHoveredPill("red");
+      setTooltipPosition({ x: clientX, y: clientY });
+    } else if (isPointInPolygon(x, y, bluePillPolygon)) {
+      setCursor("pointer");
+      setHoveredPill("blue");
+      setTooltipPosition({ x: clientX, y: clientY });
     } else {
       setCursor("default");
+      setHoveredPill(null);
     }
   };
 
@@ -139,8 +148,9 @@ const PillPopup: React.FC<PillPopupProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-6
-    ${closing ? "fade-out" : "fade-in"}`}
+      className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-6 ${
+        closing ? "fade-out" : "fade-in"
+      }`}
     >
       {/* Left: Image + Message Box */}
       <div className="relative p-4 rounded-lg shadow-2xl text-center w-full max-w-[650px]">
@@ -170,6 +180,26 @@ const PillPopup: React.FC<PillPopupProps> = ({
             onClick={handleClick}
             onMouseMove={handleMouseMove}
           />
+
+          {/* Cursor-following Tooltip */}
+          {hoveredPill && (
+            <div
+              className={`absolute z-30 text-sm px-3 py-1 rounded-md font-semibold pointer-events-none transition-opacity duration-150 whitespace-nowrap
+              ${
+                hoveredPill === "red"
+                  ? "bg-red-600 text-white"
+                  : "bg-blue-600 text-white"
+              }`}
+              style={{
+                left: tooltipPosition.x + 10,
+                top: tooltipPosition.y + 10,
+              }}
+            >
+              {hoveredPill === "red"
+                ? "Truth is freedom"
+                : "Ignorance is bliss"}
+            </div>
+          )}
         </div>
 
         <h3 className="text-lg md:text-2xl font-bold mt-4">
