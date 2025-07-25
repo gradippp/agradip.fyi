@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: "Agradip's Portfolio",
     description:
-      "Don't cover a judge by its a book gang, there could be some cool things in here who knows.",
+      "Don't cover a judge by its book gang, there could be some cool things in here who knows.",
     url: "https://agradip.fyi",
     siteName: "agradip.fyi",
     images: [
