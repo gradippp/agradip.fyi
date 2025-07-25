@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SocialLink from "@/components/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
-import PillPopup from "@/components/PillPopup"; // <-- NEW
+import PillPopup from "@/components/PillPopup";
 import "@/app/anims.css";
 
 export default function Home() {

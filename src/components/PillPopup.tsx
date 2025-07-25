@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import VHSGlitchText from "./VHSTextGlitch";
 
 interface PillPopupProps {
   onRedPill: () => void;
