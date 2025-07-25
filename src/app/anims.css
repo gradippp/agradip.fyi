@@ -9,8 +9,23 @@
   }
 }
 
-.animate-fade-in {
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.fade-in {
   animation: fade-in 0.3s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
 }
 
 .vhs-text {

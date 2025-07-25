@@ -11,26 +11,39 @@ import Footer from "@/components/Footer";
 import { LINKS } from "@/data/links";
 
 export default function Home() {
-  const [showPills, setShowPills] = useState(false);
-
   const handleImageClick = () => {
     setShowPills(true);
   };
 
+  const [showPills, setShowPills] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  const closePillPopup = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setShowPills(false);
+      setClosing(false);
+    }, 300); // match this to the animation duration
+  };
+
   const handleRedPill = () => {
     console.log("Red Pill chosen");
-    setShowPills(false);
+    closePillPopup();
   };
 
   const handleBluePill = () => {
     console.log("Blue Pill chosen");
-    setShowPills(false);
+    closePillPopup();
   };
 
   return (
     <main className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen p-4 flex items-center justify-center relative overflow-hidden">
       {showPills && (
-        <PillPopup onRedPill={handleRedPill} onBluePill={handleBluePill} />
+        <PillPopup
+          onRedPill={handleRedPill}
+          onBluePill={handleBluePill}
+          closing={closing}
+        />
       )}
 
       <div className="text-center max-w-4xl w-full">
