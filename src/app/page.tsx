@@ -7,6 +7,7 @@ import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
 import "@/app/anims.css";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [showPills, setShowPills] = useState(false);
@@ -96,6 +97,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <Footer />
       </div>
     </main>
   );
