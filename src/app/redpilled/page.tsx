@@ -21,25 +21,27 @@ export default function RedPilled() {
         </div>
 
         <p className="text-gray-300 leading-relaxed text-lg mt-4 italic">
-          “Look again at that dot. That's here. That's home. That's us.”
+          &quot;Look again at that dot. That&apos;s here. That&apos;s home.
+          That&apos;s us.&quot;
         </p>
 
         <div className="text-gray-400 text-base leading-relaxed text-left mt-4 px-2 md:px-6 space-y-2">
           <p>
-            On that pale blue dot floats everything we've ever known — every
-            joy, every pain, every hero, coward, explorer, and creator. It
+            On that pale blue dot floats everything we&apos;ve ever known —
+            every joy, every pain, every hero, coward, explorer, and creator. It
             reminds us of our shared fragility and the absurdity of our
             divisions.
           </p>
           <p>
             When you zoom out far enough, our pride, our wars, and even our
-            borders blur into irrelevance. The universe doesn't care for our
-            labels — but maybe that's a good thing. It's a call to humility, to
-            kindness, and to curiosity.
+            borders blur into irrelevance. The universe doesn&apos;t care for
+            our labels — but maybe that&apos;s a good thing. It&apos;s a call to
+            humility, to kindness, and to curiosity.
           </p>
           <p>
-            To be red-pilled is not just to “see the truth,” but to understand
-            the scale of our ignorance — and to embrace the beauty of it.
+            To be red-pilled is not just to &quot;see the truth,&quot; but to
+            understand the scale of our ignorance — and to embrace the beauty of
+            it.
           </p>
         </div>
 
