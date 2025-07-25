@@ -28,11 +28,7 @@ export default function Home() {
   return (
     <main className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen p-4 flex items-center justify-center relative overflow-hidden">
       {showPills && (
-        <PillPopup
-          onRedPill={handleRedPill}
-          onBluePill={handleBluePill}
-          onClose={() => setShowPills(false)}
-        />
+        <PillPopup onRedPill={handleRedPill} onBluePill={handleBluePill} />
       )}
 
       <div className="text-center max-w-4xl w-full">

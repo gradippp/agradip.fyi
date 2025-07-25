@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from "react";
 interface PillPopupProps {
   onRedPill: () => void;
   onBluePill: () => void;
-  onClose: () => void;
 }
 
 const ORIGINAL_WIDTH = 594;
@@ -37,14 +36,70 @@ const bluePillPolygon: [number, number][] = [
   [399, 364],
 ];
 
-const PillPopup: React.FC<PillPopupProps> = ({
-  onRedPill,
-  onBluePill,
-  onClose,
-}) => {
+const PillPopup: React.FC<PillPopupProps> = ({ onRedPill, onBluePill }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [cursor, setCursor] = useState("default");
+
+  // Matrix Animation
+  useEffect(() => {
+    const canvas = document.getElementById(
+      "matrix-canvas"
+    ) as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = (canvas.width = canvas.offsetWidth);
+    let height = (canvas.height = canvas.offsetHeight);
+
+    const fontSize = 14;
+    const columns = Math.floor(width / fontSize);
+    const drops = Array(columns).fill(1);
+    const characters =
+      "アァイィウヴカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let animationFrameId: number;
+
+    function draw() {
+      if (!ctx) return;
+
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = "#0F0";
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        ctx.fillText(text, x, y);
+
+        if (y > height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+
+      animationFrameId = requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    const handleResize = () => {
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!overlayRef.current || !imageContainerRef.current) return;
@@ -86,16 +141,23 @@ const PillPopup: React.FC<PillPopupProps> = ({
           className="relative w-full"
           style={{ aspectRatio: `${ORIGINAL_WIDTH} / ${ORIGINAL_HEIGHT}` }}
         >
+          {/* Matrix Canvas Background */}
+          <canvas
+            id="matrix-canvas"
+            className="absolute top-0 left-0 w-full h-full z-0 blur-sm"
+          ></canvas>
+
+          {/* Morpheus Image */}
           <img
             src="/morpheus.png"
             alt="Morpheus"
-            className="rounded-lg w-full h-full object-cover border border-gray-600"
+            className="rounded-lg w-full h-full object-cover border border-gray-600 z-10 relative"
           />
 
-          {/* Transparent Overlay for click detection */}
+          {/* Transparent Overlay for interaction */}
           <div
             ref={overlayRef}
-            className="absolute top-0 left-0 w-full h-full"
+            className="absolute top-0 left-0 w-full h-full z-20"
             style={{ cursor }}
             onClick={handleClick}
             onMouseMove={handleMouseMove}
@@ -108,16 +170,9 @@ const PillPopup: React.FC<PillPopupProps> = ({
         <p className="text-gray-400 text-sm mb-2">
           After this, there is no turning back...
         </p>
-
-        <button
-          onClick={onClose}
-          className="text-sm text-gray-500 mt-2 hover:underline"
-        >
-          Close
-        </button>
       </div>
 
-      {/* Right: Transparent Easter Egg Container */}
+      {/* Right: Easter Egg Message */}
       <div className="p-4 text-center w-full max-w-md">
         <h3
           className="vhs-text text-xl md:text-2xl font-bold mb-2"
