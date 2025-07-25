@@ -27,8 +27,6 @@ export const metadata = {
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/og-image.png`,
-        width: 1200,
-        height: 630,
         alt: "Dogesh lmao",
       },
     ],
