@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   const handleRedPill = () => {
-    window.open(MISC.RED_PILL_REDIRECT);
+    window.location.href = MISC.RED_PILL_REDIRECT;
     closePillPopup();
   };
 
@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen p-4 flex items-center justify-center relative overflow-hidden">
+    <main className="text-white min-h-screen p-4 flex items-center justify-center relative overflow-hidden">
       {showPills && (
         <PillPopup
           onRedPill={handleRedPill}
@@ -123,7 +123,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <Footer />
       </div>
     </main>
   );

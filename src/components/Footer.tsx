@@ -23,11 +23,14 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="mt-12 text-center text-sm text-gray-500 border-t border-gray-700 pt-4 pb-6">
-      <div>
-        {"\u00A9"} {new Date().getFullYear()} Agradip. All rights reserved.
+    <footer className="mt-16 border-t border-gray-700 pt-6 pb-10 text-center text-sm text-gray-500 transition-all duration-300">
+      <div className="mb-2">
+        <span className="hover:text-white transition-colors duration-200">
+          {"\u00A9"} {new Date().getFullYear()} Agradip. All rights reserved.
+        </span>
       </div>
-      <div className="mt-2 text-xs italic text-gray-400">{message}</div>
+
+      <div className="text-xs italic text-gray-400">{message}</div>
     </footer>
   );
 }
