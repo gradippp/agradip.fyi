@@ -11,6 +11,7 @@ const messages = [
   "You probably watch a productivity video… then take a 3-hour nap",
   "Dawg, you really out here acting like this footer owes you something?",
   "Homie no offense, your personality couldn't fight off a toddler.",
+  "Yo mama so short, I can see her feet in her passport picture.",
 ];
 
 export default function Footer() {
