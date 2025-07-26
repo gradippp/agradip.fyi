@@ -1,26 +1,30 @@
-import twemoji from "twemoji";
-import { useEffect, useRef } from "react";
-import { CONFIG } from "@/data/config";
 import { get as emojify } from "node-emoji";
+import { CONFIG } from "@/data/config";
 
 interface TwemojiProps {
   name: string;
 }
 
 export default function Twemoji({ name }: TwemojiProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const emoji = emojify(name) ? emojify(name) : name;
+  const emoji = emojify(name) || name;
 
-  useEffect(() => {
-    if (ref.current) {
-      twemoji.parse(ref.current, {
-        base: CONFIG.TWEMOJI_CDN,
-        folder: "svg",
-        ext: ".svg",
-        className: "twemoji",
-      });
-    }
-  }, [emoji]);
+  const toCodePoints = (unicode: string) =>
+    [...unicode]
+      .map((char) => char.codePointAt(0)?.toString(16))
+      .filter(Boolean)
+      .join("-");
 
-  return <span ref={ref}>{emoji}</span>;
+  const codepoints = toCodePoints(emoji);
+  const emojiUrl = `${CONFIG.TWEMOJI_CDN}/svg/${codepoints}.svg`;
+
+  return (
+    <img
+      src={emojiUrl}
+      alt={emoji}
+      className="twemoji"
+      draggable={false}
+      height={20}
+      width={20}
+    />
+  );
 }
