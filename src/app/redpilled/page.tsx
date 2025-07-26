@@ -21,29 +21,57 @@ export default function RedPilled() {
           />
         </div>
 
-        <p className="text-gray-300 leading-relaxed text-lg mt-4 italic">
-          &quot;Look again at that dot. That&apos;s here. That&apos;s home.
-          That&apos;s us.&quot;
-        </p>
-
-        <div className="text-gray-400 text-base leading-relaxed text-left mt-4 px-2 md:px-6 space-y-2">
+        <div className="text-gray-400 text-base leading-relaxed text-left mt-4 px-2 md:px-6 space-y-4">
+          <h2 className="text-3xl font-semibold">
+            On the Fragility of Meaning
+          </h2>
           <p>
-            On that pale blue dot floats everything we&apos;ve ever known —
-            every joy, every pain, every hero, coward, explorer, and creator. It
-            reminds us of our shared fragility and the absurdity of our
-            divisions.
+            This universe is a little too big for any religious definition of
+            God to be true, don&apos;t you think? We are quite literally smaller
+            than a grain of dust in the vast expanse of the cosmos. And yet, we
+            often convince ourselves that the universe revolves around us - our
+            beliefs, our rituals, our need for meaning.
           </p>
           <p>
-            When you zoom out far enough, our pride, our wars, and even our
-            borders blur into irrelevance. The universe doesn&apos;t care for
-            our labels — but maybe that&apos;s a good thing. It&apos;s a call to
-            humility, to kindness, and to curiosity.
+            We look up at the stars, seeking patterns, stories, divinity -
+            trying to fit infinite complexity into the finite imagination. Maybe
+            it&apos;s comforting, even necessary, to believe that something so
+            vast could still care about us. That we matter. That we&apos;re not
+            just fleeting sparks in an indifferent void.
           </p>
           <p>
-            To be red-pilled is not just to &quot;see the truth,&quot; but to
-            understand the scale of our ignorance — and to embrace the beauty of
-            it.
+            And yet, when we peel back the layers of our self-importance,
+            we&apos;re met with a silence so vast it almost feels cruel. The
+            universe offers no explanations, no reassurances - only the cold
+            logic of physics, the entropy that governs the cosmos, the quiet
+            drift of celestial bodies billions of light-years away. Cosmic
+            indifference doesn&apos;t come with malice; it simply is.
           </p>
+          <p>
+            The idea that we are the center of it all crumbles in the face of
+            this scale, replaced by the uncomfortable truth that we are, at
+            best, an accident - a fleeting consequence of random events that
+            just happened to make us.
+          </p>
+          <p>
+            And worse still, in the face of this indifference, we falter - not
+            with humility, but with arrogance. We wage wars over land and gods,
+            poison the very air we breathe, pollute the ground even as we sow
+            seeds into it. We are not stewards of this Pale Blue Dot; we are
+            merely its fumbling tenants, often incapable of long-term thought or
+            collective responsibility.
+          </p>
+          <p>
+            Our species, brilliant as it can be, is often reckless and divided.
+            In a universe where intelligence is rare and precious, we squander
+            ours in pursuit of power and pride.
+          </p>
+          <p>
+            Perhaps it&apos;s not that the cosmos doesn&apos;t care about us,
+            but rather that we fail to care for ourselves - and for this fragile
+            dot we call home.
+          </p>
+          <p className="italic text-right">~ Agradip</p>
         </div>
 
         <Link
