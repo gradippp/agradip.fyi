@@ -7,11 +7,11 @@ import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
 import "@/app/anims.css";
-import Footer from "@/components/Footer";
 import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
+import Image from "next/image";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -55,7 +55,7 @@ export default function Home() {
           onClick={handleImageClick}
         >
           <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full inline-block">
-            <img
+            <Image
               src="/myphoto.jpg"
               alt="Agradip"
               className="rounded-full border-4 border-black shadow-lg w-full h-full"
@@ -81,14 +81,14 @@ export default function Home() {
             <p>
               I have over <strong>4 years</strong> of experience as a developer,
               and I love fiddling around with random IT stuff. I am especially
-              into Networking and System Administration. I've taken care of a
-              few Linux servers over the past few years like they were my own
+              into Networking and System Administration. I&#39;ve taken care of
+              a few Linux servers over the past few years like they were my own
               kids.
             </p>
             <p>
-              Outside the tech bubble, you'll usually find me making electronic
-              music, capturing life through mobile photography, or diving into
-              late-night philosophical rabbit holes.
+              Outside the tech bubble, you&#39;ll usually find me making
+              electronic music, capturing life through mobile photography, or
+              diving into late-night philosophical rabbit holes.
             </p>
           </div>
         </div>
