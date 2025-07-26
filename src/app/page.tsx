@@ -11,7 +11,6 @@ import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
-import Image from "next/image";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -55,7 +54,7 @@ export default function Home() {
           onClick={handleImageClick}
         >
           <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full inline-block">
-            <Image
+            <img
               src="/myphoto.jpg"
               alt="Agradip"
               className="rounded-full border-4 border-black shadow-lg w-full h-full"
