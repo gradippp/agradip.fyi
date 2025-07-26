@@ -22,7 +22,7 @@ export default function RedPilled() {
         </div>
 
         <div className="text-gray-400 text-base leading-relaxed text-left mt-4 px-2 md:px-6 space-y-4">
-          <h2 className="text-3xl font-semibold">
+          <h2 className="text-3xl md:text-4xl font-semibold">
             On the Fragility of Meaning
           </h2>
           <p>
@@ -43,15 +43,16 @@ export default function RedPilled() {
             And yet, when we peel back the layers of our self-importance,
             we&apos;re met with a silence so vast it almost feels cruel. The
             universe offers no explanations, no reassurances - only the cold
-            logic of physics, the entropy that governs the cosmos, the quiet
-            drift of celestial bodies billions of light-years away. Cosmic
-            indifference doesn&apos;t come with malice; it simply is.
-          </p>
-          <p>
-            The idea that we are the center of it all crumbles in the face of
-            this scale, replaced by the uncomfortable truth that we are, at
-            best, an accident - a fleeting consequence of random events that
-            just happened to make us.
+            logic of physics, the entropy that governs the universe, the quiet
+            drift of every celestial body billions of light years away. Cosmic
+            indifference doesn&apos;t come with malice; it simply is, and we
+            must admit that, it doesn&apos;t care that we suffer, it
+            doesn&apos;t care if we prosper, it doesn&apos;t care if we love or
+            hate, it doesn&apos;t care if we build a civilization or destroy
+            one, or simply if we exist or don&apos;t. The idea that we are the
+            center of it all crumbles in the face of this scale, replaced by the
+            uncomfortable truth that we are, at best, an accident of a series of
+            events that just happened to make us exist.
           </p>
           <p>
             And worse still, in the face of this indifference, we falter - not
@@ -59,17 +60,11 @@ export default function RedPilled() {
             poison the very air we breathe, pollute the ground even as we sow
             seeds into it. We are not stewards of this Pale Blue Dot; we are
             merely its fumbling tenants, often incapable of long-term thought or
-            collective responsibility.
-          </p>
-          <p>
-            Our species, brilliant as it can be, is often reckless and divided.
-            In a universe where intelligence is rare and precious, we squander
-            ours in pursuit of power and pride.
-          </p>
-          <p>
-            Perhaps it&apos;s not that the cosmos doesn&apos;t care about us,
-            but rather that we fail to care for ourselves - and for this fragile
-            dot we call home.
+            collective responsibility. Our species, brilliant as it can be , is
+            often reckless and divided. In an universe where intelligence is
+            rare and precious, we squander ours in pursuit of power and pride.
+            Perhaps, its not that the cosmos doesn&apos;t care about us, but
+            rather we fail to care for ourselves, and the Pale Blue Dot.
           </p>
           <p className="italic text-right">~ Agradip</p>
         </div>
