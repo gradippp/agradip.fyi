@@ -8,25 +8,11 @@ interface TechItemProps {
 
 const TechItem: React.FC<TechItemProps> = ({ name, icon: Icon, size = 48 }) => {
   return (
-    <div style={styles.container}>
+    <div className="flex flex-col items-center m-2 transition-transform duration-300 ease-in-out transform hover:scale-110">
       <Icon size={size} />
-      <span style={styles.label}>{name}</span>
+      <span className="mt-1 text-sm font-medium">{name}</span>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column" as const,
-    alignItems: "center",
-    margin: "10px",
-  },
-  label: {
-    marginTop: "6px",
-    fontSize: "14px",
-    fontWeight: "500",
-  },
 };
 
 export default TechItem;
