@@ -17,13 +17,14 @@ export default function SocialLink({ text, link, icon }: SocialLinkProps) {
     >
       <FontAwesomeIcon icon={icon} className="w-6 h-6" />
 
-      <span
+      {/* It was experimental */}
+      {/* <span
         className="ml-0 max-w-0 overflow-hidden whitespace-nowrap opacity-0 
                    group-hover:max-w-[200px] group-hover:ml-2 group-hover:opacity-100 
                    transition-all duration-300 ease-in-out text-base"
       >
         {text}
-      </span>
+      </span> */}
     </a>
   );
 }
