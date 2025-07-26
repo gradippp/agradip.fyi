@@ -64,7 +64,7 @@ const PillPopup: React.FC<PillPopupProps> = ({
     const columns = Math.floor(width / fontSize);
     const drops = Array(columns).fill(1);
     const characters =
-      "アァイィウヴカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     let animationFrameId: number;
 
