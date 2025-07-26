@@ -61,8 +61,8 @@ export default function RedPilled() {
             seeds into it. We are not stewards of this Pale Blue Dot; we are
             merely its fumbling tenants, often incapable of long-term thought or
             collective responsibility. Our species, brilliant as it can be , is
-            often reckless and divided. In an universe where intelligence is
-            rare and precious, we squander ours in pursuit of power and pride.
+            often reckless and divided. In a universe where intelligence is rare
+            and precious, we squander ours in pursuit of power and pride.
             Perhaps, its not that the cosmos doesn&apos;t care about us, but
             rather we fail to care for ourselves, and the Pale Blue Dot.
           </p>
