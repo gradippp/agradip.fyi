@@ -118,7 +118,7 @@ export default function Home() {
             {TECH_ITEMS.map((cat) => (
               <div
                 key={cat.category}
-                className="flex flex-col md:flex-row md:items-start"
+                className="flex flex-col md:flex-row md:items-center"
               >
                 <div className="w-full md:w-[360px] mb-2 md:mb-0">
                   <h6 className="text-md font-semibold">{cat.category}</h6>
