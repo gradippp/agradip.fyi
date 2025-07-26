@@ -10,6 +10,8 @@ import "@/app/anims.css";
 import Footer from "@/components/Footer";
 import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
+import { TECH_ITEMS } from "@/data/techitems";
+import TechItem from "@/components/TechItem";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -92,6 +94,29 @@ export default function Home() {
         </div>
 
         <hr className="my-4 border-gray-600" />
+
+        <div className="mt-4">
+          <h4 className="text-xl font-semibold mb-2">Tech Things I Use</h4>
+          <div className="table w-full">
+            {TECH_ITEMS.map((cat) => (
+              <div key={cat.category} className="table-row">
+                <div className="table-cell align-top pr-4 w-[360px]">
+                  <h6 className="text-md font-semibold">{cat.category}</h6>
+                </div>
+
+                <div className="table-cell">
+                  <div className="flex flex-wrap gap-4">
+                    {cat.items.map((item) => (
+                      <TechItem key={item.name} {...item} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <hr className="my-6 border-gray-600" />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">My Projects</h4>
