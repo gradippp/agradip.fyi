@@ -97,14 +97,17 @@ export default function Home() {
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">Tech Things I Use</h4>
-          <div className="table w-full">
+          <div className="w-full flex flex-col gap-6">
             {TECH_ITEMS.map((cat) => (
-              <div key={cat.category} className="table-row">
-                <div className="table-cell align-top pr-4 w-[360px]">
+              <div
+                key={cat.category}
+                className="flex flex-col md:flex-row md:items-start"
+              >
+                <div className="w-full md:w-[360px] mb-2 md:mb-0">
                   <h6 className="text-md font-semibold">{cat.category}</h6>
                 </div>
 
-                <div className="table-cell">
+                <div className="w-full">
                   <div className="flex flex-wrap gap-4">
                     {cat.items.map((item) => (
                       <TechItem key={item.name} {...item} />

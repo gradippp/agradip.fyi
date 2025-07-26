@@ -15,7 +15,7 @@ import {
 
 export const TECH_ITEMS = [
   {
-    category: "Programming Languages / Frameworks",
+    category: "Languages / Frameworks",
     items: [
       {
         name: "Java",
