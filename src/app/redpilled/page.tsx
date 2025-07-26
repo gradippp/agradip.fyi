@@ -22,7 +22,7 @@ export default function RedPilled() {
         </div>
 
         <div className="text-gray-400 text-base leading-relaxed text-left mt-4 px-2 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             On the Fragility of Meaning
           </h2>
           <p>
