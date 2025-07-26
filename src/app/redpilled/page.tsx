@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { CONFIG } from "@/data/config";
 
 export default function RedPilled() {
   return (
@@ -14,7 +15,7 @@ export default function RedPilled() {
 
         <div className="aspect-video w-full rounded-lg overflow-hidden shadow-xl border border-gray-700">
           <video
-            src="https://files.agradip.fyi/u/b4ce0282.mp4"
+            src={CONFIG.PALE_BLUE_DOT_MP4}
             controls
             className="w-full h-full"
           />

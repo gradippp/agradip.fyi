@@ -11,6 +11,7 @@ import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
+import Twemoji from "@/components/Twemoji";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -25,7 +26,7 @@ export default function Home() {
     setTimeout(() => {
       setShowPills(false);
       setClosing(false);
-    }, 300); // match this to the animation duration
+    }, 300);
   };
 
   const handleRedPill = () => {
@@ -64,7 +65,8 @@ export default function Home() {
 
         <h2 className="mt-4 text-2xl font-bold">Hi, I am Agradip</h2>
         <p className="mt-2 mb-4 text-gray-400">
-          I swam too fast to the egg once and here I am <span>😔</span>
+          I swam too fast to the egg once and here I am{" "}
+          <Twemoji name=":pensive:" />
         </p>
 
         <hr className="my-4 border-gray-600" />
