@@ -12,6 +12,8 @@ import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
 import Twemoji from "@/components/Twemoji";
+import Swal from "sweetalert2";
+import { CONFIG } from "@/data/config";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -35,8 +37,22 @@ export default function Home() {
   };
 
   const handleBluePill = () => {
-    console.log("Blue Pill chosen");
     closePillPopup();
+    Swal.fire({
+      title: "Blue Pill Chosen",
+      text: "You chose ignorance. You can always come back if you decide to uncover the truth.",
+      icon: "info",
+      confirmButtonText: "Continue",
+      confirmButtonColor: "#3085d6",
+      allowOutsideClick: false,
+      didOpen: (popup) => {
+        popup.style.backgroundImage = `url("${CONFIG.PALE_BLUE_DOT_PNG}")`;
+        popup.style.backgroundSize = "cover";
+        popup.style.backgroundPosition = "center";
+        popup.style.color = "white";
+        popup.style.border = "1px solid rgba(255, 255, 255, 0.2)";
+      },
+    });
   };
 
   return (

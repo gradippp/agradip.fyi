@@ -1,5 +1,6 @@
 import {
   BashOriginal,
+  BootstrapOriginal,
   DockerOriginal,
   JavaOriginal,
   JavascriptOriginal,
@@ -11,6 +12,8 @@ import {
   PostgresqlOriginal,
   ReactOriginal,
   SpringOriginal,
+  TailwindcssOriginal,
+  ViteOriginal,
 } from "devicons-react";
 
 export const TECH_ITEMS = [
@@ -40,6 +43,18 @@ export const TECH_ITEMS = [
       {
         name: "ReactJS",
         icon: ReactOriginal,
+      },
+      {
+        name: "TailwindCSS",
+        icon: TailwindcssOriginal,
+      },
+      {
+        name: "Bootstrap",
+        icon: BootstrapOriginal,
+      },
+      {
+        name: "Vite",
+        icon: ViteOriginal,
       },
       {
         name: "Spring",
