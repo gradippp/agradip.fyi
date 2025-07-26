@@ -81,12 +81,12 @@ export default function Home() {
             <p>
               I have over <strong>4 years</strong> of experience as a developer,
               and I love fiddling around with random IT stuff. I am especially
-              into Networking and System Administration. I’ve taken care of a
+              into Networking and System Administration. I've taken care of a
               few Linux servers over the past few years like they were my own
               kids.
             </p>
             <p>
-              Outside the tech bubble, you’ll usually find me making electronic
+              Outside the tech bubble, you'll usually find me making electronic
               music, capturing life through mobile photography, or diving into
               late-night philosophical rabbit holes.
             </p>
