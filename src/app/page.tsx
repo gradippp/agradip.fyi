@@ -46,6 +46,7 @@ export default function Home() {
       confirmButtonColor: "#3085d6",
       allowOutsideClick: false,
       didOpen: (popup) => {
+        popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
         popup.style.backgroundImage = `url("${CONFIG.PALE_BLUE_DOT_PNG}")`;
         popup.style.backgroundSize = "cover";
         popup.style.backgroundPosition = "center";
