@@ -10,6 +10,10 @@ import { TailSpin } from "react-loader-spinner";
 
 const renderer = new marked.Renderer();
 
+renderer.blockquote = (quote) => {
+  return `<blockquote class="border-l-4 border-gray-800 pl-4 italic text-gray-300 my-6">${quote.text}</blockquote>`;
+};
+
 renderer.paragraph = (p) => {
   return `<p class="mb-4 text-gray-400 leading-relaxed">${p.text}</p>`;
 };

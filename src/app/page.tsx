@@ -6,6 +6,7 @@ import SocialLink from "@/components/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
+// @ts-ignore: side-effect CSS import (no type declarations), handled by Next.js build
 import "@/app/anims.css";
 import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
@@ -93,7 +94,7 @@ export default function Home() {
 
           <div className="space-y-4 text-left text-gray-300 leading-relaxed">
             <p>
-              Hi! I am Agradip, an 18-year-old student and full-stack developer
+              Hi! I am Agradip, an 19-year-old student and full-stack developer
               from India.
             </p>
             <p>
