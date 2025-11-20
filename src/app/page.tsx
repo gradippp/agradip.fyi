@@ -6,8 +6,6 @@ import SocialLink from "@/components/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
-// @ts-ignore: side-effect CSS import (no type declarations), handled by Next.js build
-import "@/app/anims.css";
 import { LINKS } from "@/data/links";
 import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
