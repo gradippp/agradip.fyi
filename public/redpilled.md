@@ -20,7 +20,3 @@ And worse still, in the face of this indifference, we falter, not with humility,
 Perhaps it's not that the cosmos doesn't care about us, but rather we fail to care for ourselves and the Pale Blue Dot.
 
 ---
-
-### Reject Religions, Become God
-
-If you're religious, how can you confidently say that all other religions are false and their gods are imaginary? What if you were born into a different faith? Would you still hold the same attitude towards the one true religion you do now, or would you defend that religion just as blindly? What if the gods we worship were never divine at all, but merely powerful stories we told ourselves to feel less alone, less afraid, more important in an indifferent universe?
