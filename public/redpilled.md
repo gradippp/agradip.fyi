@@ -24,18 +24,3 @@ Perhaps it's not that the cosmos doesn't care about us, but rather we fail to ca
 ### Reject Religions, Become God
 
 If you're religious, how can you confidently say that all other religions are false and their gods are imaginary? What if you were born into a different faith? Would you still hold the same attitude towards the one true religion you do now, or would you defend that religion just as blindly? What if the gods we worship were never divine at all, but merely powerful stories we told ourselves to feel less alone, less afraid, more important in an indifferent universe?
-
-<!-- The Death of Gods -->
-
-> "God is dead. God remains dead. And we have killed him." ~ Friedrich Nietzsche
-
-When humans first developed abstract thought, we began asking questions, from the origins of the universe to the meaning of our own existence. In response, to these questions, we gave birth to 'God.' Across cultures, God emerged as a creator, a caretaker, and a judge who watches over us, rewarding obedience and punishing moral disobedience.
-
-However, morals and ethics have varied in different timelines. What seems immoral now (e.g., child marriage) might not have been considered immoral during an older phase of humanity and might even have been considered necessary. If morality shifts across time, how can God's judgement be so absolute?
-
-Gods were explanations for the unknown, such as life and death, diseases, lightning, etc. Now, however, science has taken over that role. In this world full of suffering, there is an absence of divine intervention, and that makes traditional gods seem indifferent or nonexistent.
-
-<!-- Problem with religions -->
-<!-- To-do: Control mechanism, Institutionalized power, Moral double standards, Suppression of individuality, Division and conflict -->
-
-Religions have often dictated behaviors and social structures, sometimes oppressively.
