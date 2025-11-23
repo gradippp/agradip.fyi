@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev:serve": "npm run build && serve out -s",
+    "dev:serve": "npm run build && serve out -n",
     "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint"
