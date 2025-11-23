@@ -13,8 +13,9 @@ location / {
   try_files $uri $uri.html =404;
 }
 
-location ~ ^/404(\.html|/)?$ {
-  return 404;
+location ~ ^/404(\.html)?$ {
+  internal;
+  try_files /404.html =404;
 }
 
 error_page 404 /404.html;
