@@ -18,5 +18,3 @@ And yet, when we peel back the layers of our self-importance, we're met with a s
 And worse still, in the face of this indifference, we falter, not with humility, but with arrogance. We wage wars over land and gods, poison the very air we breathe, pollute the ground even as we sow seeds into it. We are not stewards of this Pale Blue Dot. We are merely its fumbling tenants, often incapable of long-term thought or collective responsibility. Our species, brilliant as it can be, is often reckless and divided. In a universe where intelligence is rare and precious, we squander ours in pursuit of power and pride.
 
 Perhaps it's not that the cosmos doesn't care about us, but rather we fail to care for ourselves and the Pale Blue Dot.
-
----
