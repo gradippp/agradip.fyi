@@ -28,4 +28,11 @@ export const PROJECTS = [
     description: "A custom Nginx fancyindex theme.",
     tags: ["HTML", "CSS", "JavaScript", "Files"],
   },
+  {
+    name: "haste-server",
+    openUrl: "https://paste.agradip.fyi",
+    repoUrl: gh("haste-server"),
+    description: "My custom haste-server fork.",
+    tags: ["NodeJS", "Paste"],
+  },
 ];
