@@ -103,9 +103,17 @@ export default function Home() {
               kids.
             </p>
             <p>
-              Outside the tech bubble, you&#39;ll usually find me making
-              electronic music, capturing life through mobile photography, or
-              diving into late-night philosophical rabbit holes.
+              Outside the tech bubble, you&#39;ll usually find me making{" "}
+              <a
+                href="https://linktr.ee/yvksha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                electronic music
+              </a>
+              , capturing life through mobile photography, or diving into
+              late-night philosophical rabbit holes.
             </p>
           </div>
         </div>
