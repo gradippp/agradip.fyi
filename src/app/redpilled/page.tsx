@@ -18,7 +18,7 @@ renderer.paragraph = (p) => {
   return `<p class="mb-4 text-gray-400 leading-relaxed">${p.text}</p>`;
 };
 
-renderer.hr = (tokens) => {
+renderer.hr = () => {
   return `<hr class="my-8" />`;
 };
 

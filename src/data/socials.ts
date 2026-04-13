@@ -2,11 +2,17 @@ import {
   faDiscord,
   faGithub,
   faInstagram,
+  faLinkedin,
   faRedditAlien,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export const SOCIALS = [
+  {
+    text: "gradippp",
+    link: "https://linkedin.com/in/gradippp",
+    icon: faLinkedin,
+  },
   {
     text: "@gradippp",
     link: "https://instagram.com/gradippp",

@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-// @ts-ignore
+// @ts-expect-error: vanta does not have type definitions
 import NET from "vanta/dist/vanta.net.min";
 
 const VantaBackground = () => {
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<unknown>(null);
   const vantaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const VantaBackground = () => {
       );
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy();
+      if (vantaEffect) (vantaEffect as { destroy: () => void }).destroy();
     };
   }, [vantaEffect]);
 
