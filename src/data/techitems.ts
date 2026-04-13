@@ -1,8 +1,10 @@
 import BashOriginal from "devicons-react/icons/BashOriginal";
 import BootstrapOriginal from "devicons-react/icons/BootstrapOriginal";
+import CplusplusOriginal from "devicons-react/icons/CplusplusOriginal";
 import DockerOriginal from "devicons-react/icons/DockerOriginal";
 import JavaOriginal from "devicons-react/icons/JavaOriginal";
 import JavascriptOriginal from "devicons-react/icons/JavascriptOriginal";
+import LaravelOriginal from "devicons-react/icons/LaravelOriginal";
 import LinuxOriginal from "devicons-react/icons/LinuxOriginal";
 import MysqlOriginal from "devicons-react/icons/MysqlOriginal";
 import NginxOriginal from "devicons-react/icons/NginxOriginal";
@@ -23,12 +25,20 @@ export const TECH_ITEMS = [
         icon: JavaOriginal,
       },
       {
+        name: "C++",
+        icon: CplusplusOriginal,
+      },
+      {
         name: "JavaScript",
         icon: JavascriptOriginal,
       },
       {
         name: "PHP",
         icon: PhpOriginal,
+      },
+      {
+        name: "Laravel",
+        icon: LaravelOriginal,
       },
       {
         name: "Node.js",

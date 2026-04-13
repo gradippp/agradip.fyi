@@ -1,22 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import ProjectCard from "@/components/ProjectCard";
 import SocialLink from "@/components/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
 import { LINKS } from "@/data/links";
-import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
 import Twemoji from "@/components/Twemoji";
 import Swal from "sweetalert2";
 import { CONFIG } from "@/data/config";
 
+import Section from "@/components/Section";
+import CardGrid from "@/components/CardGrid";
+
 export default function Home() {
   const handleImageClick = () => {
     setShowPills(true);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleImageClick();
+    }
   };
 
   const [showPills, setShowPills] = useState(false);
@@ -31,7 +38,7 @@ export default function Home() {
   };
 
   const handleRedPill = () => {
-    window.location.href = MISC.RED_PILL_REDIRECT;
+    window.location.href = CONFIG.RED_PILL_REDIRECT || "/redpilled";
     closePillPopup();
   };
 
@@ -42,7 +49,7 @@ export default function Home() {
       text: "You chose ignorance. You can always come back if you decide to uncover the truth.",
       icon: "info",
       confirmButtonText: "Continue",
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#ffffff",
       allowOutsideClick: false,
       didOpen: (popup) => {
         popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
@@ -65,34 +72,39 @@ export default function Home() {
         />
       )}
 
-      <div className="text-center max-w-4xl w-full">
+      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 mt-12 mb-4">
         <div
-          className="mx-auto mt-4 w-32 h-32 cursor-pointer"
+          className="mx-auto mt-4 w-32 h-32 cursor-pointer focus:outline-none rounded-full transition-transform duration-500 hover:scale-105 active:scale-95 group relative"
           onClick={handleImageClick}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          role="button"
+          aria-label="Open secret pill popup"
         >
-          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full inline-block">
+          {/* Outer Ring Glow */}
+          <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          <div className="relative bg-zinc-900 p-1 rounded-full inline-block border border-white/10 group-hover:border-white/30 transition-colors duration-500">
             <img
               src="/myphoto.jpg"
               alt="Agradip"
-              className="rounded-full border-4 border-black shadow-lg w-full h-full"
+              className="rounded-full border-4 border-zinc-950 shadow-2xl w-full h-full object-cover"
             />
           </div>
         </div>
 
-        <h2 className="mt-4 text-2xl font-bold">Hi, I am Agradip</h2>
-        <p className="mt-2 mb-4 text-gray-400">
-          I swam too fast to the egg once and here I am{" "}
+        <h1 className="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+          Hi, I am <span className="text-accent">Agradip</span>
+        </h1>
+        <p className="mt-4 mb-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+          Full-stack developer from India. I swam too fast to the egg once and here I am{" "}
           <Twemoji name=":pensive:" />
         </p>
 
-        <hr className="my-4 border-gray-600" />
-
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold">About Me</h4>
-
-          <div className="space-y-4 text-left text-gray-300 leading-relaxed">
+        <Section title="About Me">
+          <div className="space-y-6 text-left text-zinc-300 leading-relaxed max-w-3xl mx-auto">
             <p>
-              Hi! I am Agradip, an 19-year-old student and full-stack developer
+              Hi! I am Agradip, a 19-year-old student and full-stack developer
               from India.
             </p>
             <p>
@@ -108,7 +120,7 @@ export default function Home() {
                 href="https://linktr.ee/yvksha"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-accent hover:underline underline-offset-4 transition-all"
               >
                 electronic music
               </a>
@@ -116,66 +128,40 @@ export default function Home() {
               late-night philosophical rabbit holes.
             </p>
           </div>
-        </div>
+        </Section>
 
-        <hr className="my-4 border-gray-600" />
-
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold mb-2">Tech Things I Use</h4>
-          <div className="w-full flex flex-col gap-6">
+        <Section title="Tech Things I Use">
+          <div className="w-full flex flex-col gap-8 max-w-3xl mx-auto">
             {TECH_ITEMS.map((cat) => (
-              <div
-                key={cat.category}
-                className="flex flex-col md:flex-row md:items-center"
-              >
-                <div className="w-full md:w-[360px] mb-2 md:mb-0">
-                  <h6 className="text-md font-semibold">{cat.category}</h6>
-                </div>
-
-                <div className="w-full">
-                  <div className="flex flex-wrap gap-4">
-                    {cat.items.map((item) => (
-                      <TechItem key={item.name} {...item} />
-                    ))}
-                  </div>
+              <div key={cat.category} className="flex flex-col gap-4">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-500 text-left">
+                  {cat.category}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {cat.items.map((item) => (
+                    <TechItem key={item.name} {...item} />
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        <hr className="my-6 border-gray-600" />
+        <Section title="My Projects">
+          <CardGrid items={PROJECTS} />
+        </Section>
 
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold mb-2">My Projects</h4>
-          <div className="flex flex-wrap justify-center gap-4">
-            {PROJECTS.map((project) => (
-              <ProjectCard key={project.name} {...project} />
-            ))}
-          </div>
-        </div>
+        <Section title="Links & Services">
+          <CardGrid items={LINKS} />
+        </Section>
 
-        <hr className="my-6 border-gray-600" />
-
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold mb-2">Links & Services</h4>
-          <div className="flex flex-wrap justify-center gap-4">
-            {LINKS.map((link) => (
-              <ProjectCard key={link.name} {...link} />
-            ))}
-          </div>
-        </div>
-
-        <hr className="my-6 border-gray-600" />
-
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold mb-2">My Socials</h4>
-          <div className="flex flex-wrap justify-center gap-4 mt-2">
+        <Section title="My Socials">
+          <div className="flex flex-wrap justify-center gap-3 mt-2 max-w-2xl mx-auto">
             {SOCIALS.map((social) => (
               <SocialLink key={social.link} {...social} />
             ))}
           </div>
-        </div>
+        </Section>
       </div>
     </main>
   );

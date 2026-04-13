@@ -9,42 +9,12 @@ interface PillPopupProps {
 const ORIGINAL_WIDTH = 594;
 const ORIGINAL_HEIGHT = 514;
 
-const redPillPolygon: [number, number][] = [
-  [65, 319],
-  [99, 312],
-  [128, 304],
-  [171, 312],
-  [191, 333],
-  [185, 366],
-  [169, 404],
-  [135, 413],
-  [95, 422],
-  [62, 408],
-  [50, 381],
-  [49, 345],
-];
-
-const bluePillPolygon: [number, number][] = [
-  [406, 320],
-  [436, 303],
-  [475, 305],
-  [513, 319],
-  [546, 334],
-  [544, 374],
-  [522, 417],
-  [460, 427],
-  [422, 410],
-  [399, 364],
-];
-
 const PillPopup: React.FC<PillPopupProps> = ({
   onRedPill,
   onBluePill,
   closing,
 }) => {
-  const overlayRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const [cursor, setCursor] = useState("default");
   const [hoveredPill, setHoveredPill] = useState<"red" | "blue" | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
@@ -108,55 +78,48 @@ const PillPopup: React.FC<PillPopupProps> = ({
     };
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!overlayRef.current || !imageContainerRef.current) return;
-
-    const rect = imageContainerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * ORIGINAL_WIDTH;
-    const y = ((e.clientY - rect.top) / rect.height) * ORIGINAL_HEIGHT;
-
-    const clientX = e.clientX - rect.left;
-    const clientY = e.clientY - rect.top;
-
-    if (isPointInPolygon(x, y, redPillPolygon)) {
-      setCursor("pointer");
-      setHoveredPill("red");
-      setTooltipPosition({ x: clientX, y: clientY });
-    } else if (isPointInPolygon(x, y, bluePillPolygon)) {
-      setCursor("pointer");
-      setHoveredPill("blue");
-      setTooltipPosition({ x: clientX, y: clientY });
-    } else {
-      setCursor("default");
-      setHoveredPill(null);
-    }
-  };
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (!overlayRef.current || !imageContainerRef.current) return;
-
-    const rect = imageContainerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * ORIGINAL_WIDTH;
-    const y = ((e.clientY - rect.top) / rect.height) * ORIGINAL_HEIGHT;
-
-    if (isPointInPolygon(x, y, redPillPolygon)) {
-      onRedPill();
-    } else if (isPointInPolygon(x, y, bluePillPolygon)) {
-      onBluePill();
+  const handlePillInteraction = (
+    pill: "red" | "blue" | null,
+    e?: React.MouseEvent | React.FocusEvent
+  ) => {
+    setHoveredPill(pill);
+    if (pill && e && imageContainerRef.current) {
+      const rect = imageContainerRef.current.getBoundingClientRect();
+      // For buttons, we can just center the tooltip over the button or follow mouse if it's a mouse event
+      const mouseEvent = e as React.MouseEvent;
+      if (mouseEvent.clientX !== undefined) {
+        setTooltipPosition({
+          x: mouseEvent.clientX - rect.left,
+          y: mouseEvent.clientY - rect.top,
+        });
+      } else {
+        // Focus event, place tooltip in a fixed spot relative to the pill
+        if (pill === "red") {
+          setTooltipPosition({
+            x: (120 / ORIGINAL_WIDTH) * rect.width,
+            y: (363 / ORIGINAL_HEIGHT) * rect.height,
+          });
+        } else {
+          setTooltipPosition({
+            x: (472.5 / ORIGINAL_WIDTH) * rect.width,
+            y: (365 / ORIGINAL_HEIGHT) * rect.height,
+          });
+        }
+      }
     }
   };
 
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-6 ${
+      className={`fixed inset-0 bg-zinc-950/90 backdrop-blur-md flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-12 ${
         closing ? "fade-out" : "fade-in"
       }`}
     >
       {/* Left: Image + Message Box */}
-      <div className="relative p-4 rounded-lg shadow-2xl text-center w-full max-w-[650px]">
+      <div className="relative p-4 text-center w-full max-w-[650px]">
         <div
           ref={imageContainerRef}
-          className="relative w-full"
+          className="relative w-full rounded-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] border border-white/10"
           style={{ aspectRatio: `${ORIGINAL_WIDTH} / ${ORIGINAL_HEIGHT}` }}
         >
           {/* Matrix Canvas Background */}
@@ -169,17 +132,49 @@ const PillPopup: React.FC<PillPopupProps> = ({
           <img
             src="/morpheus.png"
             alt="Morpheus"
-            className="rounded-lg w-full h-full object-cover border border-gray-600 z-10 relative"
+            className="w-full h-full object-cover z-10 relative"
           />
 
-          {/* Transparent Overlay for interaction */}
-          <div
-            ref={overlayRef}
-            className="absolute top-0 left-0 w-full h-full z-20"
-            style={{ cursor }}
-            onClick={handleClick}
-            onMouseMove={handleMouseMove}
-          />
+          {/* Interactive Buttons Overlay */}
+          <div className="absolute top-0 left-0 w-full h-full z-20">
+            {/* Red Pill Button */}
+            <button
+              onClick={onRedPill}
+              onMouseEnter={(e) => handlePillInteraction("red", e)}
+              onMouseMove={(e) => handlePillInteraction("red", e)}
+              onMouseLeave={() => handlePillInteraction(null)}
+              onFocus={(e) => handlePillInteraction("red", e)}
+              onBlur={() => handlePillInteraction(null)}
+              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-red-500/50 rounded-full transition-all"
+              style={{
+                left: "8.25%",
+                top: "59.1%",
+                width: "23.9%",
+                height: "23.0%",
+              }}
+              aria-label="Take the Red Pill: Truth is freedom"
+              title="Take the Red Pill"
+            />
+
+            {/* Blue Pill Button */}
+            <button
+              onClick={onBluePill}
+              onMouseEnter={(e) => handlePillInteraction("blue", e)}
+              onMouseMove={(e) => handlePillInteraction("blue", e)}
+              onMouseLeave={() => handlePillInteraction(null)}
+              onFocus={(e) => handlePillInteraction("blue", e)}
+              onBlur={() => handlePillInteraction(null)}
+              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-500/50 rounded-full transition-all"
+              style={{
+                left: "67.2%",
+                top: "58.9%",
+                width: "24.7%",
+                height: "24.1%",
+              }}
+              aria-label="Take the Blue Pill: Ignorance is bliss"
+              title="Take the Blue Pill"
+            />
+          </div>
 
           {/* Cursor-following Tooltip */}
           {hoveredPill && (
@@ -202,57 +197,39 @@ const PillPopup: React.FC<PillPopupProps> = ({
           )}
         </div>
 
-        <h3 className="text-lg md:text-2xl font-bold mt-4">
+        <h3 className="text-2xl md:text-3xl font-extrabold mt-8 text-white tracking-tight">
           This is your last chance.
         </h3>
-        <p className="text-gray-400 text-sm mb-2">
+        <p className="text-zinc-500 text-base mt-2">
           After this, there is no turning back...
         </p>
       </div>
 
       {/* Right: Easter Egg Message */}
-      <div className="p-4 text-center w-full max-w-md">
+      <div className="p-4 text-center lg:text-left w-full max-w-md">
         <h3
-          className="vhs-text text-xl md:text-2xl font-bold mb-2"
-          data-text="There are no accidents. You were meant to find this."
+          className="vhs-text text-xl md:text-2xl font-bold mb-4 block"
+          data-text="There are no accidents."
         >
-          There are no accidents. You were meant to find this.
+          There are no accidents.
         </h3>
-        <h3
-          className="vhs-text text-xl md:text-2xl font-bold mb-2"
-          data-text="Reality is just a question of perspective."
-        >
-          Reality is just a question of perspective.
-        </h3>
-        <p className="text-gray-300 text-sm font-mono tracking-tight italic mb-1">
+        <p className="text-zinc-300 text-lg font-medium leading-relaxed mb-6">
           Life always narrows down to binary choices — the{" "}
-          <span className="font-bold">0s</span> and the{" "}
-          <span className="font-bold">1s</span>. The real question is: will you
-          take the blue pill and continue to accept the illusion? Or will you
+          <span className="text-red-500 font-bold">0s</span> and the{" "}
+          <span className="text-blue-500 font-bold">1s</span>.
+        </p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-8 italic">
+          Will you take the blue pill and continue to accept the illusion? Or will you
           take the red pill and uncover the truth, no matter how uncomfortable
           it is?
         </p>
-        <p className="text-gray-500 text-xs mt-3">
-          <span className="text-green-500">[System]</span> Curiosity detected.
-          Awaiting user input...
-        </p>
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10 w-fit mx-auto lg:mx-0">
+          <span className="text-accent font-mono text-xs font-bold">[SYSTEM]</span>
+          <p className="text-zinc-500 text-xs font-mono">Curiosity detected. Awaiting input...</p>
+        </div>
       </div>
     </div>
   );
 };
 
 export default PillPopup;
-
-// Point-in-polygon check
-function isPointInPolygon(x: number, y: number, polygon: [number, number][]) {
-  let inside = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const [xi, yi] = polygon[i];
-    const [xj, yj] = polygon[j];
-
-    const intersect =
-      yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
-    if (intersect) inside = !inside;
-  }
-  return inside;
-}

@@ -1,5 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -35,6 +35,8 @@ export const metadata = {
   },
 };
 
+import VantaBackground from "@/components/VantaBackground";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,11 +47,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-gradient-to-br from-gray-900 to-black">
-          {children}
+        <div className="relative min-h-screen overflow-x-hidden">
+          <VantaBackground />
 
-          <div className="max-w-4xl mx-auto text-center">
-            <Footer />
+          {/* Strong backdrop blur overlay for legibility and abstract look */}
+          <div className="fixed inset-0 backdrop-blur-[8px] bg-zinc-950/20 pointer-events-none -z-10" />
+
+          <div className="relative z-10">
+            {children}
+
+            <div className="max-w-4xl mx-auto text-center">
+              <Footer />
+            </div>
           </div>
         </div>
       </body>
