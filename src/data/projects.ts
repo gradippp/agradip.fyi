@@ -1,6 +1,8 @@
+import { ProjectData } from "@/types";
+
 const gh = (repo: string) => `https://github.com/gradippp/${repo}`;
 
-export const PROJECTS = [
+export const PROJECTS: ProjectData[] = [
   {
     name: "Agradip.fyi",
     openUrl: "https://agradip.fyi/",
@@ -32,7 +34,7 @@ export const PROJECTS = [
     name: "haste-server",
     openUrl: "https://paste.agradip.fyi",
     repoUrl: gh("haste-server"),
-    description: "My custom haste-server fork.",
+    description: "My custom fork of the open-source haste-server.",
     tags: ["NodeJS", "Paste"],
   },
 ];

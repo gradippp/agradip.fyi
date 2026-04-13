@@ -1,20 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import ProjectCard from "@/components/ProjectCard";
 import SocialLink from "@/components/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
 import PillPopup from "@/components/PillPopup";
 import { LINKS } from "@/data/links";
-import { MISC } from "@/data/misc";
 import { TECH_ITEMS } from "@/data/techitems";
 import TechItem from "@/components/TechItem";
 import Twemoji from "@/components/Twemoji";
 import Swal from "sweetalert2";
 import { CONFIG } from "@/data/config";
 
-import SectionDivider from "@/components/SectionDivider";
+import Section from "@/components/Section";
+import CardGrid from "@/components/CardGrid";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -39,7 +38,7 @@ export default function Home() {
   };
 
   const handleRedPill = () => {
-    window.location.href = MISC.RED_PILL_REDIRECT;
+    window.location.href = CONFIG.RED_PILL_REDIRECT || "/redpilled";
     closePillPopup();
   };
 
@@ -85,7 +84,7 @@ export default function Home() {
           {/* Outer Ring Glow */}
           <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          <div className="relative bg-zinc-900 p-1 rounded-full inline-block border border-white/10 group-hover:border-accent/50 transition-colors duration-500">
+          <div className="relative bg-zinc-900 p-1 rounded-full inline-block border border-white/10 group-hover:border-white/30 transition-colors duration-500">
             <img
               src="/myphoto.jpg"
               alt="Agradip"
@@ -102,11 +101,7 @@ export default function Home() {
           <Twemoji name=":pensive:" />
         </p>
 
-        <SectionDivider />
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8">About Me</h2>
-
+        <Section title="About Me">
           <div className="space-y-6 text-left text-zinc-300 leading-relaxed max-w-3xl mx-auto">
             <p>
               Hi! I am Agradip, a 19-year-old student and full-stack developer
@@ -133,22 +128,15 @@ export default function Home() {
               late-night philosophical rabbit holes.
             </p>
           </div>
-        </div>
+        </Section>
 
-        <SectionDivider />
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Tech Things I Use</h2>
+        <Section title="Tech Things I Use">
           <div className="w-full flex flex-col gap-8 max-w-3xl mx-auto">
             {TECH_ITEMS.map((cat) => (
-              <div
-                key={cat.category}
-                className="flex flex-col gap-4"
-              >
+              <div key={cat.category} className="flex flex-col gap-4">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-500 text-left">
                   {cat.category}
                 </h3>
-
                 <div className="flex flex-wrap gap-3">
                   {cat.items.map((item) => (
                     <TechItem key={item.name} {...item} />
@@ -157,40 +145,23 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        <SectionDivider />
+        <Section title="My Projects">
+          <CardGrid items={PROJECTS} />
+        </Section>
 
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center tracking-tight">My Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {PROJECTS.map((project) => (
-              <ProjectCard key={project.name} {...project} />
-            ))}
-          </div>
-        </div>
+        <Section title="Links & Services">
+          <CardGrid items={LINKS} />
+        </Section>
 
-        <SectionDivider />
-
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold text-white mb-10 text-center tracking-tight">Links & Services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {LINKS.map((link) => (
-              <ProjectCard key={link.name} {...link} />
-            ))}
-          </div>
-        </div>
-
-        <SectionDivider />
-
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8 tracking-tight text-center">My Socials</h2>
+        <Section title="My Socials">
           <div className="flex flex-wrap justify-center gap-3 mt-2 max-w-2xl mx-auto">
             {SOCIALS.map((social) => (
               <SocialLink key={social.link} {...social} />
             ))}
           </div>
-        </div>
+        </Section>
       </div>
     </main>
   );
