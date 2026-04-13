@@ -73,7 +73,7 @@ export default function Home() {
         />
       )}
 
-      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 my-12">
+      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 mt-12 mb-4">
         <div
           className="mx-auto mt-4 w-32 h-32 cursor-pointer focus:outline-none rounded-full transition-transform duration-500 hover:scale-105 active:scale-95 group relative"
           onClick={handleImageClick}

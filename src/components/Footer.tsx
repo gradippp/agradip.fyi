@@ -23,7 +23,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="mt-24 border-t border-white/5 pt-12 pb-16 text-center text-sm text-zinc-500 transition-all duration-300">
+    <footer className="mt-12 border-t border-white/5 pt-8 pb-16 text-center text-sm text-zinc-500 transition-all duration-300">
       <div className="mb-4">
         <span className="hover:text-accent transition-colors duration-300 cursor-default">
           {"\u00A9"} {new Date().getFullYear()} Agradip. All rights reserved.
