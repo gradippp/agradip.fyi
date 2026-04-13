@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b; /* Zinc 950 */
+  --foreground: #fafafa; /* Zinc 50 */
+  --accent: #ffffff; /* Pure White */
+  --card: rgba(24, 24, 27, 0.4); /* Zinc 900 with opacity */
 }
 
 @theme inline {
@@ -10,13 +12,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --color-card: var(--card);
 }
 
 body {
@@ -93,7 +90,9 @@ body {
   font-weight: bold;
   mix-blend-mode: screen;
   filter: blur(1px);
-  animation: skew 2s infinite, flash 0.04s infinite;
+  animation:
+    skew 2s infinite,
+    flash 0.04s infinite;
   display: inline-block;
 }
 

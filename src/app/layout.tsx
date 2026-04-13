@@ -45,7 +45,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-gradient-to-br from-gray-900 to-black">
+        <div className="bg-zinc-950 relative min-h-screen overflow-x-hidden">
+          {/* Subtle accent glow */}
+          <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+
           {children}
 
           <div className="max-w-4xl mx-auto text-center">

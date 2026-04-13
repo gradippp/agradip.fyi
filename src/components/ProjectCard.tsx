@@ -25,19 +25,19 @@ export default function ProjectCard({
         group relative flex flex-col
         w-full sm:w-80 max-w-full
         rounded-2xl p-5
-        bg-black/70
+        bg-card
         border border-white/10
-        backdrop-blur-sm
+        backdrop-blur-md
         transition-all duration-300
         hover:-translate-y-1
-        hover:border-blue-500/60
-        hover:shadow-[0_0_0_1px_rgba(59,130,246,0.25),0_20px_40px_rgba(0,0,0,0.6)]
+        hover:border-accent/50
+        hover:shadow-[0_0_20px_-5px_rgba(6,182,212,0.15)]
         overflow-hidden
       "
     >
       {/* Subtle glow overlay */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/10 via-transparent to-transparent" />
       </div>
 
       {/* Header */}
@@ -51,18 +51,18 @@ export default function ProjectCard({
               bg-white/5
               border border-white/10
               transition-colors
-              group-hover:border-blue-500/50
+              group-hover:border-accent/40
             "
           >
             <img
               src={iconUrl}
               alt={`${name} logo`}
-              className="w-6 h-6 object-contain opacity-90"
+              className="w-6 h-6 object-contain opacity-90 transition-transform duration-300 group-hover:scale-110"
             />
           </div>
         )}
 
-        <h5 className="text-lg font-semibold tracking-tight text-white font-sans">
+        <h5 className="text-lg font-semibold tracking-tight text-white font-sans group-hover:text-accent transition-colors">
           {name}
         </h5>
       </div>
@@ -90,14 +90,14 @@ export default function ProjectCard({
               text-[11px] font-mono
               px-2 py-1
               rounded
-              bg-white/3
+              bg-white/5
               border border-white/10
               text-gray-400
               tracking-tight
               transition-all duration-200
-              hover:border-blue-500/50
-              hover:text-blue-300
-              hover:bg-blue-500/5
+              hover:border-accent/40
+              hover:text-accent
+              hover:bg-accent/5
             "
           >
             {tag}
@@ -124,9 +124,10 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="
                 inline-flex items-center gap-2
-                text-blue-400
-                hover:text-blue-300
-                transition-colors
+                text-accent/80
+                hover:text-accent
+                transition-all
+                hover:translate-x-0.5
               "
             >
               <span>View</span>

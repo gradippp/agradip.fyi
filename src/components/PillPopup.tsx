@@ -111,15 +111,15 @@ const PillPopup: React.FC<PillPopupProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-6 ${
+      className={`fixed inset-0 bg-zinc-950/90 backdrop-blur-md flex flex-col lg:flex-row items-center justify-center z-50 p-4 gap-12 ${
         closing ? "fade-out" : "fade-in"
       }`}
     >
       {/* Left: Image + Message Box */}
-      <div className="relative p-4 rounded-lg shadow-2xl text-center w-full max-w-[650px]">
+      <div className="relative p-4 text-center w-full max-w-[650px]">
         <div
           ref={imageContainerRef}
-          className="relative w-full"
+          className="relative w-full rounded-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] border border-white/10"
           style={{ aspectRatio: `${ORIGINAL_WIDTH} / ${ORIGINAL_HEIGHT}` }}
         >
           {/* Matrix Canvas Background */}
@@ -132,7 +132,7 @@ const PillPopup: React.FC<PillPopupProps> = ({
           <img
             src="/morpheus.png"
             alt="Morpheus"
-            className="rounded-lg w-full h-full object-cover border border-gray-600 z-10 relative"
+            className="w-full h-full object-cover z-10 relative"
           />
 
           {/* Interactive Buttons Overlay */}
@@ -145,7 +145,7 @@ const PillPopup: React.FC<PillPopupProps> = ({
               onMouseLeave={() => handlePillInteraction(null)}
               onFocus={(e) => handlePillInteraction("red", e)}
               onBlur={() => handlePillInteraction(null)}
-              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full"
+              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-red-500/50 rounded-full transition-all"
               style={{
                 left: "8.25%",
                 top: "59.1%",
@@ -164,7 +164,7 @@ const PillPopup: React.FC<PillPopupProps> = ({
               onMouseLeave={() => handlePillInteraction(null)}
               onFocus={(e) => handlePillInteraction("blue", e)}
               onBlur={() => handlePillInteraction(null)}
-              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full"
+              className="absolute bg-transparent border-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-500/50 rounded-full transition-all"
               style={{
                 left: "67.2%",
                 top: "58.9%",
@@ -197,40 +197,36 @@ const PillPopup: React.FC<PillPopupProps> = ({
           )}
         </div>
 
-        <h3 className="text-lg md:text-2xl font-bold mt-4">
+        <h3 className="text-2xl md:text-3xl font-extrabold mt-8 text-white tracking-tight">
           This is your last chance.
         </h3>
-        <p className="text-gray-400 text-sm mb-2">
+        <p className="text-zinc-500 text-base mt-2">
           After this, there is no turning back...
         </p>
       </div>
 
       {/* Right: Easter Egg Message */}
-      <div className="p-4 text-center w-full max-w-md">
+      <div className="p-4 text-center lg:text-left w-full max-w-md">
         <h3
-          className="vhs-text text-xl md:text-2xl font-bold mb-2"
-          data-text="There are no accidents. You were meant to find this."
+          className="vhs-text text-xl md:text-2xl font-bold mb-4 block"
+          data-text="There are no accidents."
         >
-          There are no accidents. You were meant to find this.
+          There are no accidents.
         </h3>
-        <h3
-          className="vhs-text text-xl md:text-2xl font-bold mb-2"
-          data-text="Reality is just a question of perspective."
-        >
-          Reality is just a question of perspective.
-        </h3>
-        <p className="text-gray-300 text-sm font-mono tracking-tight italic mb-1">
+        <p className="text-zinc-300 text-lg font-medium leading-relaxed mb-6">
           Life always narrows down to binary choices — the{" "}
-          <span className="font-bold">0s</span> and the{" "}
-          <span className="font-bold">1s</span>. The real question is: will you
-          take the blue pill and continue to accept the illusion? Or will you
+          <span className="text-red-500 font-bold">0s</span> and the{" "}
+          <span className="text-blue-500 font-bold">1s</span>.
+        </p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-8 italic">
+          Will you take the blue pill and continue to accept the illusion? Or will you
           take the red pill and uncover the truth, no matter how uncomfortable
           it is?
         </p>
-        <p className="text-gray-500 text-xs mt-3">
-          <span className="text-green-500">[System]</span> Curiosity detected.
-          Awaiting user input...
-        </p>
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10 w-fit mx-auto lg:mx-0">
+          <span className="text-accent font-mono text-xs font-bold">[SYSTEM]</span>
+          <p className="text-zinc-500 text-xs font-mono">Curiosity detected. Awaiting input...</p>
+        </div>
       </div>
     </div>
   );
