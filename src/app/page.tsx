@@ -73,7 +73,7 @@ export default function Home() {
         />
       )}
 
-      <div className="text-center max-w-4xl w-full py-12">
+      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 my-12">
         <div
           className="mx-auto mt-4 w-32 h-32 cursor-pointer focus:outline-none rounded-full transition-transform duration-500 hover:scale-105 active:scale-95 group relative"
           onClick={handleImageClick}
@@ -184,8 +184,8 @@ export default function Home() {
         <SectionDivider />
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8">My Socials</h2>
-          <div className="flex flex-wrap justify-center gap-6 mt-2">
+          <h2 className="text-2xl font-bold text-white mb-8 tracking-tight text-center">My Socials</h2>
+          <div className="flex flex-wrap justify-center gap-3 mt-2 max-w-2xl mx-auto">
             {SOCIALS.map((social) => (
               <SocialLink key={social.link} {...social} />
             ))}

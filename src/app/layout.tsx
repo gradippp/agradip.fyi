@@ -35,6 +35,8 @@ export const metadata = {
   },
 };
 
+import VantaBackground from "@/components/VantaBackground";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,14 +47,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-zinc-950 relative min-h-screen overflow-x-hidden">
-          {/* Subtle accent glow */}
-          <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+        <div className="relative min-h-screen overflow-x-hidden">
+          <VantaBackground />
 
-          {children}
+          {/* Strong backdrop blur overlay for legibility and abstract look */}
+          <div className="fixed inset-0 backdrop-blur-[8px] bg-zinc-950/20 pointer-events-none -z-10" />
 
-          <div className="max-w-4xl mx-auto text-center">
-            <Footer />
+          <div className="relative z-10">
+            {children}
+
+            <div className="max-w-4xl mx-auto text-center">
+              <Footer />
+            </div>
           </div>
         </div>
       </body>
