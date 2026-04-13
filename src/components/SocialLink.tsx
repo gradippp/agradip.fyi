@@ -13,6 +13,7 @@ export default function SocialLink({ text, link, icon }: SocialLinkProps) {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={text}
       className="group flex items-center text-white text-2xl transition-all duration-300 hover:text-blue-500"
     >
       <FontAwesomeIcon icon={icon} className="w-6 h-6" />

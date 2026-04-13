@@ -23,7 +23,7 @@ export default function ProjectCard({
     <div
       className="
         group relative flex flex-col
-        w-full sm:w-80
+        w-full sm:w-80 max-w-full
         rounded-2xl p-5
         bg-black/70
         border border-white/10
@@ -32,6 +32,7 @@ export default function ProjectCard({
         hover:-translate-y-1
         hover:border-blue-500/60
         hover:shadow-[0_0_0_1px_rgba(59,130,246,0.25),0_20px_40px_rgba(0,0,0,0.6)]
+        overflow-hidden
       "
     >
       {/* Subtle glow overlay */}
@@ -68,7 +69,7 @@ export default function ProjectCard({
 
       {/* Description (3-line clamp without Tailwind config) */}
       <p
-        className="relative z-10 text-sm text-gray-400 leading-relaxed mb-6"
+        className="relative z-10 text-sm text-gray-400 leading-relaxed mb-6 break-words"
         style={{
           display: "-webkit-box",
           WebkitLineClamp: 3,

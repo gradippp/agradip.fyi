@@ -14,9 +14,17 @@ import Twemoji from "@/components/Twemoji";
 import Swal from "sweetalert2";
 import { CONFIG } from "@/data/config";
 
+import SectionDivider from "@/components/SectionDivider";
+
 export default function Home() {
   const handleImageClick = () => {
     setShowPills(true);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleImageClick();
+    }
   };
 
   const [showPills, setShowPills] = useState(false);
@@ -67,8 +75,12 @@ export default function Home() {
 
       <div className="text-center max-w-4xl w-full">
         <div
-          className="mx-auto mt-4 w-32 h-32 cursor-pointer"
+          className="mx-auto mt-4 w-32 h-32 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full"
           onClick={handleImageClick}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          role="button"
+          aria-label="Open secret pill popup"
         >
           <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full inline-block">
             <img
@@ -85,7 +97,7 @@ export default function Home() {
           <Twemoji name=":pensive:" />
         </p>
 
-        <hr className="my-4 border-gray-600" />
+        <SectionDivider />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold">About Me</h4>
@@ -118,7 +130,7 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="my-4 border-gray-600" />
+        <SectionDivider />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">Tech Things I Use</h4>
@@ -144,7 +156,7 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="my-6 border-gray-600" />
+        <SectionDivider />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">My Projects</h4>
@@ -155,7 +167,7 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="my-6 border-gray-600" />
+        <SectionDivider />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">Links & Services</h4>
@@ -166,7 +178,7 @@ export default function Home() {
           </div>
         </div>
 
-        <hr className="my-6 border-gray-600" />
+        <SectionDivider />
 
         <div className="mt-4">
           <h4 className="text-xl font-semibold mb-2">My Socials</h4>
