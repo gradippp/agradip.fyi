@@ -162,8 +162,8 @@ export default function Home() {
         <SectionDivider />
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8">My Projects</h2>
-          <div className="flex flex-wrap justify-center gap-6">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.name} {...project} />
             ))}
@@ -173,8 +173,8 @@ export default function Home() {
         <SectionDivider />
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-white mb-8">Links & Services</h2>
-          <div className="flex flex-wrap justify-center gap-6">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">Links & Services</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {LINKS.map((link) => (
               <ProjectCard key={link.name} {...link} />
             ))}
