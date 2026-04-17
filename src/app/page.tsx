@@ -14,6 +14,7 @@ import { CONFIG } from "@/data/config";
 
 import Section from "@/components/Section";
 import CardGrid from "@/components/CardGrid";
+import GetInTouch from "@/components/GetInTouch";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -100,6 +101,8 @@ export default function Home() {
           Full-stack developer from India. I swam too fast to the egg once and here I am{" "}
           <Twemoji name=":pensive:" />
         </p>
+
+        <GetInTouch />
 
         <Section title="About Me">
           <div className="space-y-6 text-left text-zinc-300 leading-relaxed max-w-3xl mx-auto">
