@@ -74,7 +74,7 @@ export default function Home() {
         />
       )}
 
-      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 mt-12 mb-4">
+      <div className="text-center w-[90%] py-12 px-6 sm:px-12 mt-12 mb-4 mx-auto">
         <div
           className="mx-auto mt-4 w-32 h-32 cursor-pointer focus:outline-none rounded-full transition-transform duration-500 hover:scale-105 active:scale-95 group relative"
           onClick={handleImageClick}
@@ -98,7 +98,7 @@ export default function Home() {
         <h1 className="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
           Hi, I am <span className="text-accent">Agradip</span>
         </h1>
-        <p className="mt-4 mb-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 mb-6 text-lg text-zinc-400 w-[95%] mx-auto leading-relaxed">
           Full-stack developer from India. I swam too fast to the egg once and here I am{" "}
           <Twemoji name=":pensive:" />
         </p>
@@ -106,7 +106,7 @@ export default function Home() {
         <GetInTouch />
 
         <Section title="About Me">
-          <div className="space-y-6 text-left text-zinc-300 leading-relaxed max-w-3xl mx-auto">
+          <div className="space-y-6 text-left text-zinc-300 leading-relaxed w-full mx-auto">
             <p>
               Hi! I am Agradip, a 19-year-old student and full-stack developer
               from India.
@@ -135,7 +135,7 @@ export default function Home() {
         </Section>
 
         <Section title="Tech Things I Use">
-          <div className="w-full flex flex-col gap-8 max-w-3xl mx-auto">
+          <div className="w-full flex flex-col gap-8 mx-auto">
             {TECH_ITEMS.map((cat) => (
               <div key={cat.category} className="flex flex-col gap-4">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-500 text-left">
@@ -168,7 +168,7 @@ export default function Home() {
         </Section>
 
         <Section title="My Socials">
-          <div className="flex flex-wrap justify-center gap-3 mt-2 max-w-2xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 mt-2 w-full mx-auto">
             {SOCIALS.map((social) => (
               <SocialLink key={social.link} {...social} />
             ))}

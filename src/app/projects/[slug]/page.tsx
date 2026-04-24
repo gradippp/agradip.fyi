@@ -34,7 +34,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="text-white min-h-screen p-4 flex flex-col items-center relative overflow-hidden">
-      <div className="text-center max-w-4xl w-full py-12 px-6 sm:px-12 mt-12 mb-4">
+      <div className="text-center w-[90%] py-12 px-6 sm:px-12 mt-12 mb-4 mx-auto">
         <div className="mb-8 text-left">
           <Link
             href="/projects"
@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <Section title="Overview">
-          <div className="text-left text-zinc-300 leading-relaxed max-w-2xl mx-auto space-y-6">
+          <div className="text-left text-zinc-300 leading-relaxed w-full mx-auto space-y-6">
             <p className="text-lg">{project.description}</p>
             <div className="flex flex-wrap gap-4 pt-4">
               {project.openUrl && (

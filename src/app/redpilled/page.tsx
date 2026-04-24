@@ -66,7 +66,7 @@ export default function RedPilled() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-between p-4 text-white relative">
-      <div className="relative z-10 max-w-4xl w-full text-center space-y-6 flex-grow">
+      <div className="relative z-10 w-[90%] text-center space-y-6 flex-grow mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-blue-400">
           The Pale Blue Dot
         </h1>

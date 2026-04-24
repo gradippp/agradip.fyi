@@ -30,7 +30,7 @@ export default function Footer() {
         </span>
       </div>
 
-      <div className="text-xs italic text-zinc-600 max-w-md mx-auto leading-relaxed">{message}</div>
+      <div className="text-xs italic text-zinc-600 w-full mx-auto leading-relaxed">{message}</div>
     </footer>
   );
 }

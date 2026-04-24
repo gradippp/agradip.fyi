@@ -28,7 +28,7 @@ export default function NotFound() {
           className="w-48 md:w-64 lg:w-80 h-48 md:h-64 lg:h-80 object-cover rounded-xl"
         />
 
-        <p className="text-lg md:text-2xl lg:text-3xl text-gray-300 max-w-md">
+        <p className="text-lg md:text-2xl lg:text-3xl text-gray-300 w-full">
           Oops! This page does not exist. <br />
           But don&apos;t worry gang, I am here to dance it out!
         </p>
@@ -49,5 +49,5 @@ export default function NotFound() {
 }
 
 function HLine() {
-  return <hr className="my-6 border-t border-gray-700 w-full max-w-xl" />;
+  return <hr className="my-6 border-t border-gray-700 w-full max-w-[90%]" />;
 }

@@ -56,7 +56,7 @@ export default function RootLayout({
           <div className="relative z-10">
             {children}
 
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="w-[90%] mx-auto text-center">
               <Footer />
             </div>
           </div>
