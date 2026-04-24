@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
-import Footer from "@/components/Footer";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +35,7 @@ export const metadata = {
   },
 };
 
-import VantaBackground from "@/components/VantaBackground";
+import VantaBackground from "@/components/ui/VantaBackground";
 
 export default function RootLayout({
   children,

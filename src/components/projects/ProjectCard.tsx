@@ -1,8 +1,10 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 interface ProjectCardProps {
+  slug?: string;
   name: string;
   description: string;
   iconUrl?: string;
@@ -12,6 +14,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({
+  slug,
   name,
   description,
   iconUrl,
@@ -102,7 +105,7 @@ export default function ProjectCard({
       )}
 
       {/* Actions */}
-      {(openUrl || repoUrl) && (
+      {(slug || openUrl || repoUrl) && (
         <div
           className="
             relative z-10
@@ -113,6 +116,21 @@ export default function ProjectCard({
             pt-4 w-full
           "
         >
+          {slug && (
+            <Link
+              href={`/projects/${slug}`}
+              className="
+                inline-flex items-center gap-1.5
+                text-zinc-300
+                hover:text-accent
+                transition-all
+              "
+            >
+              <FontAwesomeIcon icon={faCircleInfo} className="opacity-60" size="xs" />
+              <span>Details</span>
+            </Link>
+          )}
+
           {openUrl && (
             <a
               href={openUrl}

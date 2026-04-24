@@ -1,5 +1,5 @@
 import { get as emojify } from "node-emoji";
-import { CONFIG } from "@/data/config";
+import { CONFIG } from "@/lib/config";
 
 interface TwemojiProps {
   name: string;

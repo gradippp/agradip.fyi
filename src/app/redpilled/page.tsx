@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { marked } from "marked";
-import { CONFIG } from "@/data/config";
+import { CONFIG } from "@/lib/config";
 import { TailSpin } from "react-loader-spinner";
 
 const renderer = new marked.Renderer();

@@ -1,20 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import SocialLink from "@/components/SocialLink";
+import Link from "next/link";
+import SocialLink from "@/components/social/SocialLink";
 import { PROJECTS } from "@/data/projects";
 import { SOCIALS } from "@/data/socials";
-import PillPopup from "@/components/PillPopup";
+import PillPopup from "@/components/ui/PillPopup";
 import { LINKS } from "@/data/links";
 import { TECH_ITEMS } from "@/data/techitems";
-import TechItem from "@/components/TechItem";
-import Twemoji from "@/components/Twemoji";
+import TechItem from "@/components/home/TechItem";
+import Twemoji from "@/components/ui/Twemoji";
 import Swal from "sweetalert2";
-import { CONFIG } from "@/data/config";
+import { CONFIG } from "@/lib/config";
 
-import Section from "@/components/Section";
-import CardGrid from "@/components/CardGrid";
-import GetInTouch from "@/components/GetInTouch";
+import Section from "@/components/ui/Section";
+import CardGrid from "@/components/ui/CardGrid";
+import GetInTouch from "@/components/home/GetInTouch";
 
 export default function Home() {
   const handleImageClick = () => {
@@ -151,7 +152,15 @@ export default function Home() {
         </Section>
 
         <Section title="My Projects">
-          <CardGrid items={PROJECTS} />
+          <CardGrid items={PROJECTS.filter((p) => p.featured)} />
+          <div className="mt-8">
+            <Link
+              href="/projects"
+              className="text-zinc-400 hover:text-white transition-colors text-sm font-medium underline underline-offset-4"
+            >
+              View All Projects &rarr;
+            </Link>
+          </div>
         </Section>
 
         <Section title="Links & Services">

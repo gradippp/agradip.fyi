@@ -1,4 +1,4 @@
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "@/components/projects/ProjectCard";
 import { ProjectData } from "@/types";
 
 interface CardGridProps {

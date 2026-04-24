@@ -1,6 +1,6 @@
 "use client";
 
-import { CONFIG } from "@/data/config";
+import { CONFIG } from "@/lib/config";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
