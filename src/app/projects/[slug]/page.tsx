@@ -5,6 +5,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import fs from "fs/promises";
+import path from "path";
+import { parseMarkdown } from "@/lib/markdown";
 
 export async function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -30,6 +33,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   if (!project) {
     notFound();
+  }
+
+  let contentHtml = "";
+  try {
+    const filePath = path.join(process.cwd(), "src", "content", "projects", `${slug}.md`);
+    const fileContent = await fs.readFile(filePath, "utf8");
+    contentHtml = await parseMarkdown(fileContent);
+  } catch (_) {
+    console.error(`No markdown content found for project: ${slug}`);
   }
 
   return (
@@ -73,7 +85,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         <Section title="Overview">
           <div className="text-left text-zinc-300 leading-relaxed w-full mx-auto space-y-6">
-            <p className="text-lg">{project.description}</p>
+            {contentHtml ? (
+              <div
+                className="prose prose-invert max-w-none"
+                dangerouslySetInnerHTML={{ __html: contentHtml }}
+              />
+            ) : (
+              <p className="text-lg">{project.description}</p>
+            )}
+            
             <div className="flex flex-wrap gap-4 pt-4">
               {project.openUrl && (
                 <a
