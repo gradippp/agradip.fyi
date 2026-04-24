@@ -4,51 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { marked } from "marked";
 import { CONFIG } from "@/lib/config";
 import { TailSpin } from "react-loader-spinner";
-
-const renderer = new marked.Renderer();
-
-renderer.blockquote = (quote) => {
-  return `<blockquote class="border-l-4 border-gray-800 pl-4 italic text-gray-300 my-6">${quote.text}</blockquote>`;
-};
-
-renderer.paragraph = (p) => {
-  return `<p class="mb-4 text-gray-400 leading-relaxed">${p.text}</p>`;
-};
-
-renderer.hr = () => {
-  return `<hr class="my-8" />`;
-};
-
-renderer.heading = ({ tokens, depth }) => {
-  const text = tokens.map((token) => token.raw || token.raw || "").join("");
-  let size = "";
-
-  switch (depth) {
-    case 2:
-      size = "text-3xl md:text-4xl font-bold";
-      break;
-    case 3:
-      size = "text-2xl md:text-3xl font-semibold";
-      break;
-    default:
-      size = "text-xl font-semibold";
-      break;
-  }
-
-  let id = text
-    .replaceAll("-", "--")
-    .replaceAll(/[^A-Za-z0-9]/g, "-")
-    .replaceAll(" ", "-");
-  id = id.endsWith("-") ? id.slice(0, id.length - 1) : id;
-  id = id.toLowerCase();
-
-  return `<h${depth} class="${size} mt-8 mb-4 anchor-heading" id="${id}"><a href="#${id}" class="anchor"></a>${text}</h${depth}>`;
-};
-
-marked.setOptions({ renderer });
+import { parseMarkdown } from "@/lib/markdown";
 
 export default function RedPilled() {
   const [htmlContent, setHtmlContent] = useState("");
@@ -59,7 +17,7 @@ export default function RedPilled() {
     fetch("/redpilled.md")
       .then((res) => res.text())
       .then(async (markdown) => {
-        setHtmlContent(await marked(markdown, {}));
+        setHtmlContent(await parseMarkdown(markdown));
         setLoading(false);
       });
   }, []);
@@ -92,7 +50,10 @@ export default function RedPilled() {
               />
             </div>
           ) : (
-            <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+            <div
+              className="prose prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
+            />
           )}
         </div>
 
