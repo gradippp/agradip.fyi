@@ -56,25 +56,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Link>
         </div>
 
-        <div className="flex flex-col items-center gap-6 mb-12">
+        <div className="flex flex-col items-center gap-8 mb-24">
           {project.iconUrl && (
-            <div className="w-24 h-24 p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center">
+            <div className="w-24 h-24 p-5 bg-transparent border border-white/5 rounded-2xl flex items-center justify-center">
               <img
                 src={project.iconUrl}
                 alt={`${project.name} logo`}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain opacity-90"
               />
             </div>
           )}
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-white">
             {project.name}
           </h1>
           {project.tags && (
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-4">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 text-xs font-mono bg-white/5 border border-white/10 rounded-full text-zinc-400"
+                  className="text-[10px] font-bold font-mono uppercase tracking-[0.2em] text-zinc-500"
                 >
                   {tag}
                 </span>
@@ -84,23 +84,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <Section title="Overview">
-          <div className="text-left text-zinc-300 leading-relaxed w-full mx-auto space-y-6">
+          <div className="text-left text-zinc-300 leading-relaxed w-full mx-auto space-y-10">
             {contentHtml ? (
               <div
                 className="prose prose-invert max-w-none"
                 dangerouslySetInnerHTML={{ __html: contentHtml }}
               />
             ) : (
-              <p className="text-lg">{project.description}</p>
+              <p className="text-xl text-zinc-400">{project.description}</p>
             )}
             
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-8 border-t border-white/[0.05]">
               {project.openUrl && (
                 <a
                   href={project.openUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-colors"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl transition-all duration-150 active:scale-95"
                 >
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
                   <span>Visit Project</span>
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-white/10 text-white font-semibold rounded-lg hover:bg-zinc-800 transition-colors"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent border border-white/[0.05] text-zinc-400 font-bold rounded-xl hover:bg-white/5 hover:text-white transition-all duration-150 active:scale-95"
                 >
                   <FontAwesomeIcon icon={faGithub} size="sm" />
                   <span>View Source</span>

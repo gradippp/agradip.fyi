@@ -6,8 +6,8 @@ renderer.heading = ({ tokens, depth }) => {
   const text = tokens.map((token) => token.raw).join("");
   const size = {
     1: "text-4xl font-extrabold",
-    2: "text-3xl font-bold",
-    3: "text-2xl font-semibold",
+    2: "text-2xl font-bold text-white mt-12 mb-6 tracking-tight",
+    3: "text-xl font-semibold text-zinc-200 mt-8 mb-4",
     4: "text-xl font-semibold",
     5: "text-lg font-semibold",
     6: "text-base font-semibold",
@@ -18,38 +18,38 @@ renderer.heading = ({ tokens, depth }) => {
     .replaceAll(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-  return `<h${depth} class="${size} mt-8 mb-4 text-white anchor-heading" id="${id}">
+  return `<h${depth} class="${size} anchor-heading" id="${id}">
     <a href="#${id}" class="anchor"></a>
     ${text}
   </h${depth}>`;
 };
 
 renderer.paragraph = ({ text }) => {
-  return `<p class="mb-4 text-zinc-300 leading-relaxed text-lg">${text}</p>`;
+  return `<p class="mb-6 text-zinc-400 leading-[1.8] text-lg">${text}</p>`;
 };
 
 renderer.list = ({ items, ordered }) => {
   const type = ordered ? "ol" : "ul";
   const listClass = ordered ? "list-decimal" : "list-disc";
   const content = items.map((item) => `<li>${item.text}</li>`).join("");
-  return `<${type} class="${listClass} ml-6 mb-6 space-y-2 text-zinc-300 text-lg">${content}</${type}>`;
+  return `<${type} class="${listClass} ml-6 mb-6 space-y-3 text-zinc-400 text-lg leading-[1.8]">${content}</${type}>`;
 };
 
 renderer.listitem = ({ text }) => {
-  return `<li class="leading-relaxed">${text}</li>`;
+  return `<li class="leading-[1.8]">${text}</li>`;
 };
 
 renderer.blockquote = ({ text }) => {
-  return `<blockquote class="border-l-4 border-zinc-700 pl-4 italic text-zinc-400 my-8 bg-zinc-900/30 py-4 rounded-r-lg">${text}</blockquote>`;
+  return `<blockquote class="border-l-2 border-accent pl-6 py-2 italic text-zinc-300 text-lg bg-white/[0.02] my-8 rounded-r-xl">${text}</blockquote>`;
 };
 
 renderer.image = ({ href, title, text }) => {
   return `
-    <div class="my-10 flex flex-col items-center gap-2">
-      <div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl w-full">
+    <div class="my-12 flex flex-col items-center gap-3">
+      <div class="rounded-2xl overflow-hidden border border-white/5 shadow-2xl w-full">
         <img src="${href}" alt="${text}" title="${title || ""}" class="w-full h-auto object-cover" />
       </div>
-      ${text ? `<span class="text-sm text-zinc-500 italic">${text}</span>` : ""}
+      ${text ? `<span class="text-sm text-zinc-500 italic font-medium tracking-tight">${text}</span>` : ""}
     </div>
   `;
 };

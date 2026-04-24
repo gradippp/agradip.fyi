@@ -27,47 +27,45 @@ export default function ProjectCard({
       className="
         group relative flex flex-col items-start text-left
         w-full h-full
-        rounded-xl p-5
-        bg-[#111113]
-        border border-white/5
-        shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]
-        transition-all duration-200
-        hover:border-white/20
-        hover:bg-[#161618]
+        rounded-2xl p-7
+        bg-zinc-900/30
+        border border-white/[0.06]
+        transition-all duration-150
+        hover:border-white/[0.15]
+        hover:bg-zinc-900/50
         overflow-hidden
       "
     >
       {/* Header */}
-      <div className="relative z-10 flex items-center gap-3 mb-4 w-full">
+      <div className="relative z-10 flex items-center gap-4 mb-5 w-full">
         {iconUrl && (
           <div
             className="
               flex items-center justify-center
-              w-9 h-9 shrink-0
-              rounded-lg
-              bg-white/5
-              border border-white/10
-              shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]
-              transition-colors
-              group-hover:border-white/20
+              w-10 h-10 shrink-0
+              rounded-xl
+              bg-white/[0.03]
+              border border-white/[0.08]
+              transition-colors duration-150
+              group-hover:border-white/[0.12]
             "
           >
             <img
               src={iconUrl}
               alt={`${name} logo`}
-              className="w-5 h-5 object-contain opacity-80 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-100"
+              className="w-5.5 h-5.5 object-contain opacity-70 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-100"
             />
           </div>
         )}
 
-        <h5 className="text-base font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+        <h5 className="text-lg font-bold tracking-tight text-zinc-100 group-hover:text-white transition-colors duration-150">
           {name}
         </h5>
       </div>
 
       {/* Description */}
       <p
-        className="relative z-10 text-sm text-zinc-300 leading-relaxed mb-6 break-words flex-grow"
+        className="relative z-10 text-sm text-zinc-400 leading-relaxed mb-6 break-words flex-grow"
         style={{
           display: "-webkit-box",
           WebkitLineClamp: 3,
@@ -80,22 +78,22 @@ export default function ProjectCard({
 
       {/* Tags */}
       {tags && tags.length > 0 && (
-        <div className="relative z-10 mb-6 flex flex-wrap gap-2 w-full">
+        <div className="relative z-10 mb-7 flex flex-wrap gap-2 w-full">
           {tags.map((tag) => (
             <span
               key={tag}
               className="
                 inline-flex items-center
-                text-[11px] font-medium font-mono
-                px-2.5 py-1
+                text-[10px] font-bold font-mono uppercase
+                px-2 py-0.5
                 rounded-md
-                bg-white/5
-                border border-white/10
-                text-zinc-400
-                tracking-tight
-                transition-all duration-200
-                group-hover:border-white/20
-                group-hover:text-zinc-200
+                bg-white/[0.02]
+                border border-white/[0.05]
+                text-zinc-500
+                tracking-wider
+                transition-all duration-150
+                group-hover:border-white/[0.1]
+                group-hover:text-zinc-300
               "
             >
               {tag}
@@ -112,8 +110,8 @@ export default function ProjectCard({
             mt-auto
             flex items-center gap-6
             text-sm font-medium
-            border-t border-white/5
-            pt-4 w-full
+            border-t border-white/[0.05]
+            pt-5 w-full
           "
         >
           {slug && (
@@ -121,12 +119,12 @@ export default function ProjectCard({
               href={`/projects/${slug}`}
               className="
                 inline-flex items-center gap-1.5
-                text-zinc-300
-                hover:text-accent
-                transition-all
+                text-zinc-400
+                hover:text-white
+                transition-all duration-150
               "
             >
-              <FontAwesomeIcon icon={faCircleInfo} className="opacity-60" size="xs" />
+              <FontAwesomeIcon icon={faCircleInfo} className="opacity-50" size="xs" />
               <span>Details</span>
             </Link>
           )}
@@ -138,15 +136,15 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="
                 inline-flex items-center gap-1.5
-                text-zinc-300
-                hover:text-accent
-                transition-all
+                text-zinc-400
+                hover:text-white
+                transition-all duration-150
               "
             >
               <span>View</span>
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
-                className="opacity-60"
+                className="opacity-50"
                 size="xs"
               />
             </a>
@@ -159,12 +157,12 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="
                 inline-flex items-center gap-1.5
-                text-zinc-400
+                text-zinc-500
                 hover:text-white
-                transition-colors
+                transition-colors duration-150
               "
             >
-              <FontAwesomeIcon icon={faGithub} size="xs" />
+              <FontAwesomeIcon icon={faGithub} className="opacity-50" size="xs" />
               <span>Code</span>
             </a>
           )}

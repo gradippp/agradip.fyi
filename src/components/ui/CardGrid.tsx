@@ -7,7 +7,7 @@ interface CardGridProps {
 
 export default function CardGrid({ items }: CardGridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full mx-auto">
       {items.map((item) => (
         <ProjectCard key={item.name} {...item} />
       ))}
