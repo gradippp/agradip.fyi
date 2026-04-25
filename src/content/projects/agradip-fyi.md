@@ -1,4 +1,4 @@
-# Agradip.fyi
+# agradip.fyi
 
 Welcome to the deep dive into my personal portfolio! This project was born out of a desire to create a minimal yet visually striking home for my projects, thoughts, and digital experiments.
 
@@ -21,8 +21,6 @@ Building this required a careful selection of tools to balance performance, deve
 ## Screenshots
 
 Below is a look at the dashboard in its current state:
-
-![Portfolio Dashboard](/og-image.png)
 
 ## What's Next?
 
